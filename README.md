@@ -1,12 +1,17 @@
 # Vybe Frontend Code Challenge
 
 ## How to run
+
+Clone the repository to be able to run the project. 
+
 ### Install dependencies
 ```npm install```
 ### Run the project
 ```npm run dev```
-### Run tests
+### Run the tests
 ```npm run test```
+### Build the project
+```npm run build```
 
 ## Notes
 
