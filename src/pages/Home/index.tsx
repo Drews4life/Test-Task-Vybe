@@ -28,7 +28,7 @@ export const Home = () => {
             </section>
 
             {selectedCollection && (
-                <CollectionPopup collection={selectedCollection} data-testid="popup" />
+                <CollectionPopup collection={selectedCollection} />
             )}
         </>
     )
