@@ -16,11 +16,11 @@ export const CardImageContainer = ({
 );
 
 export const CardImage = ({
-    url,
+    src,
     alt,
     className,
 }: {
-    url: string,
+    src: string,
     alt: string,
     className?: string,
     style?: Record<string, string>,
@@ -28,7 +28,7 @@ export const CardImage = ({
     <span className="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
         <img
             alt={alt}
-            src={url}
+            src={src}
             loading="lazy"
             // FIXME: Gets shifted by other containers
             className={cn(

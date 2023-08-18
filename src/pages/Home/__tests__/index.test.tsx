@@ -10,6 +10,7 @@ jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     Link: ({ children }: { children: ReactNode }) => <>{children}</>,
     useLocation: jest.fn(() => ({ search: '' })),
+    useNavigate: jest.fn(),
 }));
 
 jest.mock('../../../features/nft/queries', () => ({

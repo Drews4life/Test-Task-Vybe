@@ -3,7 +3,7 @@ import { CardContainer, CardImage, CardImageContainer } from "./Card"
 export const CollectionPopupCard = ({ url, name, description }: { url: string, name: string, description: string }) => (
     <CardContainer className="h-[450px]">
         <CardImageContainer>
-            <CardImage url={url} alt="NFT image" className="group-hover:scale-105 transform transition-transform duration-300 ease select-none pointer-events-none" />
+            <CardImage src={url} alt="NFT image" className="group-hover:scale-105 transform transition-transform duration-300 ease select-none pointer-events-none" />
         </CardImageContainer>
         <div className="text-sm px-4 pb-3 pt-[26px]">
             <div className="flex items-center gap-1">

@@ -3,6 +3,30 @@ import { Link } from "react-router-dom";
 import { useNFTCollectionQuery } from "../queries";
 import { CardContainer, CardImage, CardImageContainer } from "./Card";
 
+const Skeleton = () => (
+    <CardContainer className="h-72">
+        <CardImageContainer>
+            <CardImage alt="Scaled NFT image" className="group-hover:scale-105 transform transition-transform duration-300 ease select-none pointer-events-none" src={"/public/download.png"} />
+            <div className="absolute -bottom-4 left-4">
+                <div
+                    className="relative w-14 border-2 rounded-xl overflow-hidden bg-white group-hover:scale-110 transform delay-75 duration-500 transition-transform"
+                    style={{ aspectRatio: "1 / 1" }}
+                >
+                    <CardImage alt="mini-NFT image" src={"/public/download.png"} />
+                </div>
+            </div>
+        </CardImageContainer>
+        <div className="flex justify-between text-sm px-4 pb-3 pt-[26px]">
+            <div className="flex items-center gap-1">
+                <div className="font-bold text-ellipsis overflow-hidden whitespace-nowrap">
+                    In progress!
+                </div>
+            </div>
+            <div className="text-gray-600 dark:text-gray-400">Infinite items</div>
+        </div>
+    </CardContainer>
+)
+
 export function IntroCollectionCard  ({
     collection,
     name
@@ -13,8 +37,7 @@ export function IntroCollectionCard  ({
     const { data, isLoading } = useNFTCollectionQuery(collection);
 
     if (isLoading || !data) {
-        // TODO: Would be great to put here a fancy loader or Card skeleton to improve LCP
-        return null;
+        return <Skeleton />;
     }
 
     if (!data.ok) return null
@@ -30,13 +53,13 @@ export function IntroCollectionCard  ({
         <Link to={`/?collection=${collection}`}>
             <CardContainer className="h-72">
                 <CardImageContainer>
-                    <CardImage alt="Scaled NFT image" className="group-hover:scale-105 transform transition-transform duration-300 ease select-none pointer-events-none" url={item.content.links.image} />
+                    <CardImage alt="Scaled NFT image" className="group-hover:scale-105 transform transition-transform duration-300 ease select-none pointer-events-none" src={item.content.links.image} />
                     <div className="absolute -bottom-4 left-4">
                         <div
                             className="relative w-14 border-2 rounded-xl overflow-hidden bg-white group-hover:scale-110 transform delay-75 duration-500 transition-transform"
                             style={{ aspectRatio: "1 / 1" }}
                         >
-                            <CardImage alt="mini-NFT image" url={item.content.links.image} />
+                            <CardImage alt="mini-NFT image" src={item.content.links.image} />
                         </div>
                     </div>
                 </CardImageContainer>
